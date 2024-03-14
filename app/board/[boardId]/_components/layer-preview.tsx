@@ -14,8 +14,6 @@ export const LayerPreview = memo(
   ({ id, onLayerPointerDown, selectionColor }: LayerPreviewProps) => {
     const layer = useStorage((root) => root.layers.get(id));
 
-    console.log(layer, "LATER PREVIEW");
-
     if (!layer) {
       return null;
     }
@@ -31,7 +29,6 @@ export const LayerPreview = memo(
           />
         );
       default:
-        console.warn("Unknown layer type");
         return null;
     }
   }
