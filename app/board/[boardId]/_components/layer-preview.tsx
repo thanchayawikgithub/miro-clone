@@ -10,6 +10,7 @@ interface LayerPreviewProps {
   onLayerPointerDown: (e: React.PointerEvent, layerId: string) => void;
   selectionColor?: string;
 }
+
 export const LayerPreview = memo(
   ({ id, onLayerPointerDown, selectionColor }: LayerPreviewProps) => {
     const layer = useStorage((root) => root.layers.get(id));
@@ -29,6 +30,7 @@ export const LayerPreview = memo(
           />
         );
       default:
+        console.warn("Unknown layer type");
         return null;
     }
   }
